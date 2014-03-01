@@ -97,13 +97,12 @@ public class GraphDFS {
 		Deque<Integer> stack = new ArrayDeque<Integer>();
 		LinkedList<Vertex> topologylist = new LinkedList<Vertex>();
 
+		Vertex vertex = vertices[0];
+		vertex.state = color.grey;
 		stack.add(0);// add the root node to the frontier
 
 		while (!stack.isEmpty()) {
 			Integer current = stack.peek();
-			// retrieve the vertex
-			Vertex vertex = vertices[current];
-			vertex.state = color.grey;
 			int neigh = getUnvisitedNeighbours(current); // get white(unvisited) neighbours											
 			if (neigh != -1) { // no neighbours left!
 				Vertex vneigh = vertices[neigh];
